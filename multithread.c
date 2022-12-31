@@ -2,9 +2,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-float avgNum;
-float minNum;
-float maxNum;
+int avgNum;
+int minNum;
+int maxNum;
 
 void *avgfunc(void *param);
 void *minfunc(void *param);
@@ -25,6 +25,8 @@ int main(int argc, char* argv[])
 
 
 /* Wait for threads to exit */
+
+printf("%d %d %d", avgNum, minNum, maxNum);
 
 
 void *avgfunc(void *param)

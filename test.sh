@@ -1,46 +1,45 @@
 #!/bin/bash
-
 numTests=10
-numCountMax=20
-numCount=''
+#numCountMax=20
+numCount=10
 declare -a numArr
 sum=''
 avg=''
 minNum=''
 maxNum=''
 score=0
-
-for test in {1..$numTests}; do
+for (( test=1; test<=$numTests; test=test+1 )); do
 	# Generate numbers
 	echo Test $test ..................
-	numCount=$(($RANDOM%$numCountMax))
-	for idx in {1..$numCount}; do
+	#numCount=$(($RANDOM%$numCountMax+1))
+	for (( idx=0; idx<$numCount; idx=idx+1 )); do
 		numArr[$idx]=$(($RANDOM%1000))
 	done
 	
 	# Calculate average
 	sum=0
-	for idx in {1..$numCount}; do
-		sum = $(($sum + $numArr[$idx]))
+	for (( idx=0; idx<$numCount; idx=idx+1 )); do
+		sum=$(($sum + ${numArr[$idx]}))
+	done
 	avg=$(($sum/$numCount))
 	
 	# Calculate minimum
-	minNum=$numArr[0]
-	for idx in {1..$numCount}; do
-		if [ "$numArr[$idx]" < "$minNum" ]; then
-			minNum=$(($numArr[$idx]))
+	minNum=${numArr[0]}
+	for (( idx=0; idx<$numCount; idx=idx+1 )); do
+		if [ "${numArr[$idx]}" -lt "$minNum" ]; then
+			minNum=${numArr[$idx]}
 		fi
 	done
 	
 	# Calculate maximum
-	maxNum=$numArr[0]
-	for idx in {1..$numCount}; do
-		if [ "$numArr[$idx]" > "$maxNum" ]; then
-			maxNum=$(($numArr[$idx]))
+	maxNum=${numArr[0]}
+	for (( idx=0; idx<$numCount; idx=idx+1 )); do
+		if [ "${numArr[$idx]}" -gt "$maxNum" ]; then
+			maxNum=$((${numArr[$idx]}))
 		fi
 	done
 	
-	output=$($(echo ./a.out ${numArr[a]}))
+	output=$($(echo ./a.out ${numArr[@]}))
 	expected_output="$avg $minNum $maxNum"
 	
 	if [ $? -eq 0 ]; then
@@ -60,3 +59,4 @@ for test in {1..$numTests}; do
 done
 
 echo "Tests completed"
+echo "Final score: $score"

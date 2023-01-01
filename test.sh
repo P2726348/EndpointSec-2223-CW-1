@@ -1,4 +1,5 @@
 #!/bin/bash
+
 numTests=10
 #numCountMax=20
 numCount=10

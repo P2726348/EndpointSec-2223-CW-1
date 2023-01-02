@@ -1,5 +1,5 @@
 a.out:
-	gcc hello.c
+	gcc multithreadsol.c
 
 clean:
 	rm hello

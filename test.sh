@@ -55,6 +55,7 @@ for (( test=1; test<=$numTests; test=test+1 )); do
 		score=$(($score + 1))
 	else
 		echo "Failed test $test, expected output: '$expected_output', your output: '$output'"
+		exit 1
 	fi
 	
 done

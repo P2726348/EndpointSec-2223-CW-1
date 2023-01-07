@@ -35,14 +35,14 @@ score=0
 	fi
 	
 	if [ "$output" == "$expected_output" ]; then
-		echo "Passed test for maximum value"
+		echo "Passed test for average value: expected output: '$expected_output', your output: '$output'"
 		score=$(($score + 1))
 	else
-		echo "Failed test for maximum value, expected output: '$expected_output', your output: '$output'"
+		echo "Failed test for average value: expected output: '$expected_output', your output: '$output'"
 		exit 1
 	fi
 	
 
 
-echo "Tests completed"
-echo "Final score: $score"
+echo "Test completed"
+# echo "Final score: $score"

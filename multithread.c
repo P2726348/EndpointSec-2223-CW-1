@@ -41,7 +41,7 @@ void *avgfunc(void *param)
  /* Write the code to calculate the average value and store it in avgNum variable */
  // To get a number from args array, use atoi(*args)
  // to increment the pointer to point to the next number: *args++
-    float sum = 0;
+    int sum = 0;
     int i = 0;
     while(*args)
     {
@@ -62,14 +62,14 @@ void *minfunc(void *param)
  /* Write the code to calculate the minimum value and store it in minNum variable */
  // To get a number from args array, use atoi(*args)
  // to increment the pointer to point to the next number: *args++
-    int min = atoi(*args);
-    float num;
+    minNum = atoi(*args);
+    int num;
     while(*args)
     {
         num = atoi(*args);
-        if(num < min)
+        if(num < minNum)
         {
-            min = num;
+            minNum = num;
         }
         *args++;
     }
@@ -85,14 +85,14 @@ void *maxfunc(void *param)
  /* Write the code to calculate the maximum value and store it in maxNum variable */
  // To get a number from args array, use atoi(*args)
  // to increment the pointer to point to the next number: *args++
-    int max = atoi(*args);
-    float num;
+    maxNum = atoi(*args);
+    int num;
     while(*args)
     {
         num = atoi(*args);
-        if(num > max)
+        if(num > maxNum)
         {
-            max = num;
+            maxNum = num;
         }
         *args++;
     }

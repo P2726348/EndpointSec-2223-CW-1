@@ -62,7 +62,7 @@ void *minfunc(void *param)
  /* Write the code to calculate the minimum value and store it in minNum variable */
  // To get a number from args array, use atoi(*args)
  // to increment the pointer to point to the next number: *args++
-    min = atoi(*args);
+    int min = atoi(*args);
     float num;
     while(*args)
     {
@@ -85,7 +85,7 @@ void *maxfunc(void *param)
  /* Write the code to calculate the maximum value and store it in maxNum variable */
  // To get a number from args array, use atoi(*args)
  // to increment the pointer to point to the next number: *args++
-    max = atoi(*args);
+    int max = atoi(*args);
     float num;
     while(*args)
     {

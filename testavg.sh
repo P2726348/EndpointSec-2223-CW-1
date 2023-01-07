@@ -23,12 +23,12 @@ score=0
 	done
 	avg=$(($sum/$numCount))
 	
-	output=$(echo ./a.out ${numArr[@]} | awk '{print $1;}')
+	output=$(echo $(./a.out ${numArr[@]}) | awk '{print $1;}')
 	expected_output="$avg"
 	
 	if [ $? -eq 0 ]; then
 		echo "Program executed successfully"
-	else
+	else 
 		echo "Program failed to execute"
 		exit 1
 	fi

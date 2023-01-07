@@ -24,7 +24,7 @@ score=0
 		fi
 	done
 	
-	output=$(echo ./a.out ${numArr[@]} | awk '{print $3;}')
+	output=$(echo $(./a.out ${numArr[@]}) | awk '{print $3;}')
 	expected_output="$maxNum"
 	
 	if [ $? -eq 0 ]; then

@@ -29,6 +29,28 @@ int main(int argc, char* argv[])
 
 /* Wait for threads to exit */
 
+pthread_t tid1;
+    pthread_attr_t attr1;
+
+    pthread_t tid2;
+    pthread_attr_t attr2;
+
+    pthread_t tid3;
+    pthread_attr_t attr3;
+
+
+    pthread_attr_init(&attr1);
+    pthread_attr_init(&attr2);
+    pthread_attr_init(&attr3);
+
+    pthread_create(&tid1, &attr1, avrg, argv);
+    pthread_create(&tid2, &attr2, minn, argv);
+    pthread_create(&tid3, &attr3, maxn, argv);
+
+    pthread_join(tid1, NULL);
+    pthread_join(tid2, NULL);
+    pthread_join(tid3, NULL);
+
 
 printf("%d %d %d", avgNum, minNum, maxNum);
 }

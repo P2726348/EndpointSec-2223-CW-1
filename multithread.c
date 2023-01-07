@@ -43,9 +43,9 @@ pthread_t tid1;
     pthread_attr_init(&attr2);
     pthread_attr_init(&attr3);
 
-    pthread_create(&tid1, &attr1, avrg, argv);
-    pthread_create(&tid2, &attr2, minn, argv);
-    pthread_create(&tid3, &attr3, maxn, argv);
+    pthread_create(&tid1, &attr1, avgfunc, argv);
+    pthread_create(&tid2, &attr2, minfunc, argv);
+    pthread_create(&tid3, &attr3, maxfunc, argv);
 
     pthread_join(tid1, NULL);
     pthread_join(tid2, NULL);

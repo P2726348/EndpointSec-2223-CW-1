@@ -1,8 +1,5 @@
 a.out:
-	gcc multithreadsol.c
-
-clean:
-	rm hello
+	gcc multithread.c
 
 testavg: a.out
 	bash testavg.sh

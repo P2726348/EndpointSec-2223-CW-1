@@ -5,4 +5,4 @@ clean:
 	rm hello
 
 test: a.out
-	bash test.sh
+	bash testavg.sh

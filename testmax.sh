@@ -11,21 +11,22 @@ maxNum=''
 score=0
 for (( test=1; test<=$numTests; test=test+1 )); do
 	# Generate numbers
-	echo Test $test for averge value ..................
+	echo Test $test for maximum value ..................
 	#numCount=$(($RANDOM%$numCountMax+1))
 	for (( idx=0; idx<$numCount; idx=idx+1 )); do
 		numArr[$idx]=$(($RANDOM%1000))
 	done
-    echo List of numbers: ${numArr[@]}
-	
-	sum=0
+	echo List of numbers: ${numArr[@]}
+
+		maxNum=${numArr[0]}
 	for (( idx=0; idx<$numCount; idx=idx+1 )); do
-		sum=$(($sum + ${numArr[$idx]}))
+		if [ "${numArr[$idx]}" -gt "$maxNum" ]; then
+			maxNum=$((${numArr[$idx]}))
+		fi
 	done
-	avg=$(($sum/$numCount))
 	
 	output=$($(echo ./a.out ${numArr[@]}))
-	expected_output="$avg"
+	expected_output="$maxNum"
 	
 	if [ $? -eq 0 ]; then
 		echo "Program executed successfully"
@@ -35,10 +36,10 @@ for (( test=1; test<=$numTests; test=test+1 )); do
 	fi
 	
 	if [ "$output" == "$expected_output" ]; then
-		echo "Passed test $test for average value"
+		echo "Passed test $test for maximum value"
 		score=$(($score + 1))
 	else
-		echo "Failed test $test for average value, expected output: '$expected_output', your output: '$output'"
+		echo "Failed test $test for maximum value, expected output: '$expected_output', your output: '$output'"
 		exit 1
 	fi
 	

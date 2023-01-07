@@ -23,7 +23,7 @@ score=0
 	done
 	avg=$(($sum/$numCount))
 	
-	output=$($(echo ./a.out ${numArr[@]} | awk '{print $1;}'))
+	output=$(echo ./a.out ${numArr[@]} | awk '{print $1;}')
 	expected_output="$avg"
 	
 	if [ $? -eq 0 ]; then

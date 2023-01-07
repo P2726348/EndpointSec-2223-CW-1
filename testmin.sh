@@ -26,7 +26,7 @@ score=0
 	done
 	
 	
-	output=$($(echo ./a.out ${numArr[@]} | awk '{print $2;}'))
+	output=$(echo ./a.out ${numArr[@]} | awk '{print $2;}')
 	expected_output="$minNum"
 	
 	if [ $? -eq 0 ]; then

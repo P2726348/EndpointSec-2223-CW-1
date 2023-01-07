@@ -4,5 +4,11 @@ a.out:
 clean:
 	rm hello
 
-test: a.out
+testavg: a.out
 	bash testavg.sh
+	
+testmin: a.out
+	bash testmin.sh
+	
+testmax: a.out
+	bash testmax.sh

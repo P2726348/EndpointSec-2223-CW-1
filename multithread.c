@@ -7,6 +7,7 @@ int avgNum;
 int minNum;
 int maxNum;
 
+// Functions' declaration. Definition is at the bottom
 void *avgfunc(void *param);
 void *minfunc(void *param);
 void *maxfunc(void *param);
@@ -53,6 +54,8 @@ void *minfunc(void *param)
  /* Write the code to calculate the minimum value */
  // To get a number from args array, use atoi(*args)
  // to increment the pointer to point to the next number: *args++
+
+
 }
 
 void *maxfunc(void *param)
@@ -64,5 +67,6 @@ void *maxfunc(void *param)
  /* Write the code to calculate the maximum value */
  // To get a number from args array, use atoi(*args)
  // to increment the pointer to point to the next number: *args++
+ 
 
 }

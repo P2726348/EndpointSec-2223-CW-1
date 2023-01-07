@@ -9,7 +9,6 @@ avg=''
 minNum=''
 maxNum=''
 score=0
-for (( test=1; test<=$numTests; test=test+1 )); do
 	# Generate numbers
 	echo Test $test for minimum value..................
 	#numCount=$(($RANDOM%$numCountMax+1))
@@ -27,7 +26,7 @@ for (( test=1; test<=$numTests; test=test+1 )); do
 	done
 	
 	
-	output=$($(echo ./a.out ${numArr[@]}))
+	output=$($(echo ./a.out ${numArr[@]} | awk '{print $2;}'))
 	expected_output="$minNum"
 	
 	if [ $? -eq 0 ]; then
@@ -38,14 +37,14 @@ for (( test=1; test<=$numTests; test=test+1 )); do
 	fi
 	
 	if [ "$output" == "$expected_output" ]; then
-		echo "Passed test $test for minimum value"
+		echo "Passed test for minimum value"
 		score=$(($score + 1))
 	else
-		echo "Failed test $test for minimum value, expected output: '$expected_output', your output: '$output'"
+		echo "Failed test for minimum value, expected output: '$expected_output', your output: '$output'"
 		exit 1
 	fi
 	
-done
+
 
 echo "Tests completed"
 echo "Final score: $score"

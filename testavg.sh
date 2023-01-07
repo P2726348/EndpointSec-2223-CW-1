@@ -9,9 +9,8 @@ avg=''
 minNum=''
 maxNum=''
 score=0
-for (( test=1; test<=$numTests; test=test+1 )); do
 	# Generate numbers
-	echo Test $test for averge value ..................
+	echo Test for averge value ..................
 	#numCount=$(($RANDOM%$numCountMax+1))
 	for (( idx=0; idx<$numCount; idx=idx+1 )); do
 		numArr[$idx]=$(($RANDOM%1000))
@@ -24,7 +23,7 @@ for (( test=1; test<=$numTests; test=test+1 )); do
 	done
 	avg=$(($sum/$numCount))
 	
-	output=$($(echo ./a.out ${numArr[@]}))
+	output=$($(echo ./a.out ${numArr[@]} | awk '{print $1;}'))
 	expected_output="$avg"
 	
 	if [ $? -eq 0 ]; then
@@ -35,14 +34,13 @@ for (( test=1; test<=$numTests; test=test+1 )); do
 	fi
 	
 	if [ "$output" == "$expected_output" ]; then
-		echo "Passed test $test for average value"
+		echo "Passed test for average value"
 		score=$(($score + 1))
 	else
-		echo "Failed test $test for average value, expected output: '$expected_output', your output: '$output'"
+		echo "Failed test for average value, expected output: '$expected_output', your output: '$output'"
 		exit 1
 	fi
 	
-done
 
 echo "Tests completed"
 echo "Final score: $score"

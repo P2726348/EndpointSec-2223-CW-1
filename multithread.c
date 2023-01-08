@@ -38,7 +38,7 @@ void *avgfunc(void *param)
 {
     // The following two lines help you to access the arguments (list of numbers) passed to the program
     char** args = (char**) param;   // args is a pointer to array of pointers to main func arguments argv
-    *args++;                        // increment the pointer to point to the first number passed
+    args++;                        // increment the pointer to point to the first number passed
 
     // To get a number from args array, use atoi(*args)
     // to increment the pointer to point to the next number: *args++
@@ -53,7 +53,7 @@ void *minfunc(void *param)
 {
     // The following two lines help you to access the arguments (list of numbers) passed to the program
     char** args = (char**) param;   // args is a pointer to array of pointers to main func arguments argv
-    *args++;                        // increment the pointer to point to the first number passed
+    args++;                        // increment the pointer to point to the first number passed
  
     // To get a number from args array, use atoi(*args)
     // to increment the pointer to point to the next number: *args++
@@ -68,7 +68,7 @@ void *maxfunc(void *param)
 {
     // The following two lines help you to access the arguments (list of numbers) passed to the program
     char** args = (char**) param;   // args is a pointer to array of pointers to main func arguments argv
-    *args++;                        // increment the pointer to point to the first number passed
+    args++;                        // increment the pointer to point to the first number passed
  
     // To get a number from args array, use atoi(*args)
     // to increment the pointer to point to the next number: *args++
